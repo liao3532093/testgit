@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.PilingImplMapper">
+    <resultMap id="pilingImplRes" type="PilingImplement">
+        <result property="id" column="id"/>
+        <result property="exaId" column="pil_exa_id"/>
+        <result property="state" column="result"/>
+        <result property="executeTime" column="execute_time"/>
+    </resultMap>
+    <resultMap id="resultRes" type="FinalResult">
+        <result property="id" column="id"/>
+    </resultMap>
+    <!--分页查询渠道用例执行详情-->
+    <select id="findPilImplementAll" parameterType="String" resultMap="pilingImplRes">
+        CALL pro_piling_execute_info(#{value},1)
+    </select>
+    <!--分页查询渠道用例执行详情个数-->
+    <select id="findPilImplementCount" parameterType="String" resultType="long">
+        CALL pro_piling_execute_info(#{value},2)
+    </select>
+    <!--查询用例执行详情-->
+    <select id="findPilModelInfoById" parameterType="String" resultMap="resultRes">
+        CALL pro_piling_execute_info(#{value},3)
+    </select>
+    <!--查询用例执行详情结果-->
+    <select id="findPilModelInfoByIdResult" parameterType="String" resultMap="resultRes">
+        CALL pro_piling_execute_info(#{value},4)
+    </select>
+    <!--查询用例执行详情结果内容-->
+    <select id="findPilModelInfoByIdResultBody" parameterType="String" resultMap="resultRes">
+        CALL pro_piling_execute_info(#{value},5)
+    </select>
+</mapper>

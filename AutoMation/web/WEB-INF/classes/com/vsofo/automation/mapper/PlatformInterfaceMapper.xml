@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.PlatformInterfaceMapper">
+    <resultMap id="pinterFaceRes" type="PinterFaceItem">
+        <result property="id" column="ID"/>
+        <result property="title" column="Title"/>
+        <result property="platId" column="PlatID"/>
+        <result property="isEnable" column="IsEnable"/>
+        <result property="userId" column="AddUserID"/>
+        <result property="addTime" column="AddTime"/>
+    </resultMap>
+    <!--保存平台接口-->
+    <select id="savePlatformInterface" parameterType="String" resultType="long">
+        CALL pro_platform_interface(#{value},1)
+    </select>
+    <!--分页查询平台接口-->
+    <select id="selectPlatInterfaceAll" parameterType="String" resultMap="pinterFaceRes">
+        CALL pro_platform_interface(#{value},2)
+    </select>
+    <!--分页查询平台接口个数-->
+    <select id="selectPlatInterfaceCount" parameterType="String" resultType="long">
+        CALL pro_platform_interface(#{value},3)
+    </select>
+    <!--按id进行查询-->
+    <select id="selectPlatInterfaceById" parameterType="String" resultMap="pinterFaceRes">
+        CALL pro_platform_interface(#{value},4)
+    </select>
+    <!--查询接口过滤禁用-->
+    <select id="selectInterfaceByName" parameterType="String" resultMap="pinterFaceRes">
+        CALL pro_platform_interface(#{value},5)
+    </select>
+    <!--启用禁用-->
+    <select id="openCloseInterfaceById" parameterType="String" resultType="long">
+        CALL pro_platform_interface(#{value},6)
+    </select>
+</mapper>

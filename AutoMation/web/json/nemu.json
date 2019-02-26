@@ -1,0 +1,120 @@
+{
+  "nemus": [
+    {
+      "obj": [
+        {
+          "name": "系统管理",
+          "icon": "icon-group",
+          "data": [
+            {
+              "name": "用户管理",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            },
+            {
+              "name": "权限类型管理",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            }
+          ]
+        },
+        {
+          "name": "配置管理",
+          "icon": "icon-group",
+          "data": [
+            {
+              "name": "预测类型管理",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            },
+            {
+              "name": "日志类型配置",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "obj": [
+        {
+          "name": "平台管理",
+          "icon": "icon-group",
+          "data": [
+            {
+              "name": "平台管理列表",
+              "url": "jump/goToPlatformList",
+              "icon": "icon-group"
+            },
+            {
+              "name": "接口配置列表",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            },
+            {
+              "name": "请求模块列表",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            },
+            {
+              "name": "校验模块列表",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "obj": [
+        {
+          "name": "用例管理",
+          "icon": "icon-group",
+          "data": [
+            {
+              "name": "用例配置管理",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "obj": [
+        {
+          "name": "监控管理",
+          "icon": "icon-group",
+          "data": [
+            {
+              "name": "执行详情列表",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            },
+            {
+              "name": "执行详情统计",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "obj": [
+        {
+          "name": "日志管理",
+          "icon": "icon-group",
+          "data": [
+            {
+              "name": "日志类型管理",
+              "url": "www.baidu.com",
+              "icon": "icon-group"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

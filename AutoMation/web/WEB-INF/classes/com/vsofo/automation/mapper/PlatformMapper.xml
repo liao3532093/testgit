@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.PlatformMapper">
+    <resultMap id="pmanageRes" type="PmanageItem">
+        <result property="id" column="ID"/>
+        <result property="title" column="Title"/>
+        <result property="exeUrl" column="execute_url"/>
+        <result property="isEnable" column="IsEnable"/>
+        <result property="addTime" column="AddTime"/>
+        <result property="userId" column="AddUserID"/>
+    </resultMap>
+    <!--添加平台名称-->
+    <select id="addPlatformManage" parameterType="String" resultType="Long">
+        CALL pro_platform_manage(#{value},1)
+    </select>
+    <!--查询全部-->
+    <select id="selectPlatformManageAll" parameterType="String" resultMap="pmanageRes">
+        CALL pro_platform_manage(#{value},2)
+    </select>
+    <!--修改平台名称-->
+    <select id="updatePlatformManageById" parameterType="String" resultType="long">
+        CALL pro_platform_manage(#{value},3)
+    </select>
+    <!--禁用平台名称-->
+    <select id="disablePlatformManageById" parameterType="String" resultType="long">
+        CALL pro_platform_manage(#{value},4)
+    </select>
+    <!--查询平台名称-->
+    <select id="selectPlatformManageByName" parameterType="String" resultMap="pmanageRes">
+        CALL pro_platform_manage(#{value},5)
+    </select>
+    <!--查询所有平台信息个数-->
+    <select id="selectPlatformManageCount" parameterType="String" resultType="long">
+        CALL pro_platform_manage(#{value},6)
+    </select>
+    <!--按ID查询平台名称-->
+    <select id="selectPlatformManageByIdToName" parameterType="String" resultMap="pmanageRes">
+        CALL pro_platform_manage(#{value},7)
+    </select>
+</mapper>

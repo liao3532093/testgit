@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.PilExampleMapper">
+    <resultMap id="pilExampleRes" type="PilExample">
+        <result property="id" column="id"/>
+        <result property="platId" column="plat_id"/>
+        <result property="pilExaName" column="piling_example_title"/>
+        <result property="state" column="state"/>
+        <result property="userId" column="userId"/>
+    </resultMap>
+    <resultMap id="pilExaModelRes" type="PilExaModel">
+        <result property="id" column="id"/>
+        <result property="modelId" column="piling_model_id"/>
+        <result property="exaId" column="piling_exa_id"/>
+        <result property="value" column="exa_value"/>
+        <result property="orderId" column="exe_order"/>
+        <result property="state" column="state"/>
+    </resultMap>
+    <!--保存渠道用例-->
+    <select id="savePilExample" parameterType="String" resultType="long">
+        CALL pro_piling_example(#{value},1)
+    </select>
+    <!--分页查询渠道用例-->
+    <select id="findPilExampleAll" parameterType="String" resultMap="pilExampleRes">
+        CALL pro_piling_example(#{value},2)
+    </select>
+    <!--分页查询渠道用例个数-->
+    <select id="findPilExampleCount" parameterType="String" resultType="long">
+        CALL pro_piling_example(#{value},3)
+    </select>
+    <!--禁用和启用-->
+    <select id="updateExaOpenClose" parameterType="String" resultType="long">
+        CALL pro_piling_example(#{value},4)
+    </select>
+    <!--按ID查询渠道用例-->
+    <select id="findPilExampleById" parameterType="String" resultMap="pilExampleRes">
+        CALL pro_piling_example(#{value},5)
+    </select>
+    <!--保存渠道用例模块-->
+    <select id="savePilExampleModel" parameterType="String" resultType="long">
+        CALL pro_piling_exa_model(#{value},1)
+    </select>
+    <!--分页查询渠道用例模块-->
+    <select id="findPilExampleModelAll" parameterType="String" resultMap="pilExaModelRes">
+        CALL pro_piling_exa_model(#{value},2)
+    </select>
+    <!--分页查询渠道用例模块个数-->
+    <select id="findPilExampleModelCount" parameterType="String" resultType="long">
+        CALL pro_piling_exa_model(#{value},3)
+    </select>
+    <!--禁用和启用-->
+    <select id="updatePilExaModelOpenClose" parameterType="String" resultType="long">
+        CALL pro_piling_exa_model(#{value},4)
+    </select>
+    <!--按ID查询渠道用例模块-->
+    <select id="findPilExampleModelById" parameterType="String" resultMap="pilExaModelRes">
+        CALL pro_piling_exa_model(#{value},5)
+    </select>
+    <!--通过ID查看渠道模块下的预期结果-->
+    <select id="findPilExampleModelByResultId" parameterType="String" resultMap="pilExaModelRes">
+        CALL pro_piling_exa_model(#{value},6)
+    </select>
+    <!--通过ID查看渠道模块下的预期结果长度-->
+    <select id="findPilExampleModelByResultCount" parameterType="String" resultType="long">
+        CALL pro_piling_exa_model(#{value},7)
+    </select>
+    <!--修改预期结果-->
+    <select id="updatePilModelResult" parameterType="String" resultType="long">
+        CALL pro_piling_exa_model(#{value},8)
+    </select>
+    <!--删除用例下的模块信息-->
+    <select id="deletePilExampleModelById" parameterType="String" resultType="long">
+        CALL pro_piling_exa_model(#{value},9)
+    </select>
+</mapper>

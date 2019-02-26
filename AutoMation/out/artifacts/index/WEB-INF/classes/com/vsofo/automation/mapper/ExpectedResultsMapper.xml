@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.ExpectedResultsMapper">
+    <resultMap id="expectedResultsRes" type="ExpectedResults">
+        <result property="id" column="ID"/>
+        <result property="caseModelId" column="CaseModelID"/>
+        <result property="expectTypeId" column="ExPectTypeID"/>
+        <result property="detail" column="Detail"/>
+        <result property="sqlId" column="SqlID"/>
+        <result property="orderNum" column="OrderNum"/>
+        <result property="isEnable" column="IsEnable"/>
+        <result property="userId" column="AddUserID"/>
+        <result property="addTime" column="AddTime"/>
+    </resultMap>
+    <!--分页查询预测结果-->
+    <select id="selectExpectedResultsAll" parameterType="String" resultMap="expectedResultsRes">
+        CALL pro_case_expectresult(#{value},1)
+    </select>
+    <!--分页查询预测结果个数-->
+    <select id="selectExpectedResultsCount" parameterType="String" resultType="long">
+        CALL pro_case_expectresult(#{value},2)
+    </select>
+    <!--保存预测结果-->
+    <select id="saveExpectedResults" parameterType="String" resultType="long">
+        CALL pro_case_expectresult(#{value},3)
+    </select>
+    <!--启用和禁用预测结果-->
+    <select id="openCloseExpectedResults" parameterType="String" resultType="long">
+        CALL pro_case_expectresult(#{value},4)
+    </select>
+    <!--按ID查询预测结果-->
+    <select id="selectExpectedResultsById" parameterType="String" resultMap="expectedResultsRes">
+        CALL pro_case_expectresult(#{value},5)
+    </select>
+</mapper>

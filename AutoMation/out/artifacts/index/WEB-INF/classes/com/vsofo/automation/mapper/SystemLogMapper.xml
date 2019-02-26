@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.SystemLogMapper">
+    <resultMap id="systemLogRes" type="SystemLog">
+        <result property="id" column="ID"/>
+        <result property="userId" column="userId"/>
+        <result property="info" column="info"/>
+        <result property="logId" column="logId"/>
+        <result property="addTime" column="AddTime"/>
+    </resultMap>
+    <!--保存日志信息-->
+    <select id="saveSystemLogInfo" parameterType="String" resultType="long">
+        CALL pro_system_log(#{value},1)
+    </select>
+    <!--查询日志-->
+    <select id="selectSystemLogAll" parameterType="String" resultMap="systemLogRes">
+        CALL pro_system_log(#{value},2)
+    </select>
+    <!--查询日志个数-->
+    <select id="selectSystemLogCount" parameterType="String" resultType="long">
+        CALL pro_system_log(#{value},3)
+    </select>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--执行详情-->
+<mapper namespace="com.vsofo.automation.mapper.ImplementMapper">
+    <resultMap id="implementRes" type="ImplementInfo">
+        <result property="id" column="ID"/>
+        <result property="caseId" column="CaseID"/>
+        <result property="result" column="Result"/>
+        <result property="addTime" column="AddTime"/>
+    </resultMap>
+    <!--分页查询执行详情-->
+    <select id="selectImplementInfoAll" parameterType="String" resultMap="implementRes">
+        CALL pro_implement_info(#{value},1)
+    </select>
+    <!--分页查询执行详情个数-->
+    <select id="selectImplementInfoCount" parameterType="String" resultType="long">
+        CALL pro_implement_info(#{value},2)
+    </select>
+    <!--查询出30天内的所有用例ID-->
+    <select id="implCaseId30All" parameterType="String" resultType="String">
+        CALL pro_case_statistics(#{value},7)
+    </select>
+</mapper>

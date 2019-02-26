@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.CaseStatisticsMapper">
+    <resultMap id="caseStatisticsRes" type="CaseStatistics">
+        <result property="id" column="ID"/>
+        <result property="successNum" column="SuccessNum"/>
+        <result property="failNum" column="FailNum"/>
+        <result property="execTime" column="ExecTime"/>
+        <result property="addTime" column="Addtime"/>
+        <result property="platID" column="PlatID"/>
+        <result property="interfaceID" column="InterfaceID"/>
+    </resultMap>
+    <!--分页查询用例平台统计-->
+    <select id="selectCaseStatisticsAll" parameterType="String" resultMap="caseStatisticsRes">
+        CALL pro_case_statistics(#{value},1)
+    </select>
+    <!--分页查询用例平台统计个数-->
+    <select id="selectCaseStatisticsCount" parameterType="String" resultType="long">
+        CALL pro_case_statistics(#{value},2)
+    </select>
+    <!--查询平台数据-->
+    <select id="selectCaseDetailCount" parameterType="String" resultType="String">
+        CALL pro_case_statistics(#{value},3)
+    </select>
+    <!--分页查询用例接口统计-->
+    <select id="selectCaseInterStatisticsAll" parameterType="String" resultMap="caseStatisticsRes">
+        CALL pro_case_statistics(#{value},4)
+    </select>
+    <!--分页查询用例接口统计个数-->
+    <select id="selectCaseInterStatisticsCount" parameterType="String" resultType="long">
+        CALL pro_case_statistics(#{value},5)
+    </select>
+    <!--查询平台和接口数据-->
+    <select id="selectInterCaseDetailCount" parameterType="String" resultMap="caseStatisticsRes">
+        CALL pro_case_statistics(#{value},6)
+    </select>
+    <!--通过ID去查询平台统计-->
+    <select id="selectCaseStatisticsById" parameterType="String" resultMap="caseStatisticsRes">
+        CALL pro_case_statistics(#{value},7)
+    </select>
+    <!--取得当天运行用例总数-->
+    <select id="selectCaseStatisticsSize" parameterType="String" resultMap="caseStatisticsRes">
+        CALL pro_case_statistics(#{value},8)
+    </select>
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.PlatformRequestMapper">
+    <resultMap id="prequestRes" type="PrequestItem">
+        <result property="id" column="ID"/>
+        <result property="platId" column="PlatID"/>
+        <result property="interfaceId" column="InterfaceID"/>
+        <result property="title" column="Title"/>
+        <result property="requestUrl" column="RequestURL"/>
+        <result property="requestType" column="RequestType"/>
+        <result property="paramType" column="ParamType"/>
+        <result property="isEnable" column="IsEnable"/>
+        <result property="userId" column="AddUserID"/>
+        <result property="addTime" column="AddTime"/>
+        <result property="modType" column="modType"/>
+    </resultMap>
+    <!--保存用例信息-->
+    <select id="savePlatRequestInfo" parameterType="String" resultType="Long">
+        CALL pro_platform_request(#{value},1)
+    </select>
+    <!--分页查询所有用例信息-->
+    <select id="selectPlatRequestAll" parameterType="String" resultMap="prequestRes">
+        CALL pro_platform_request(#{value},2)
+    </select>
+    <!--查询用例信息个数-->
+    <select id="selectPlatRequestCount" parameterType="String" resultType="long">
+        CALL pro_platform_request(#{value},3)
+    </select>
+    <!--按ID查询用例信息-->
+    <select id="selectPlatRequestById" parameterType="String" resultMap="prequestRes">
+        CALL pro_platform_request(#{value},4)
+    </select>
+    <!--查询所有请求模块的名称的ID-->
+    <select id="selectPlatRequestByNames" parameterType="String" resultMap="prequestRes">
+        CALL pro_platform_request(#{value},5)
+    </select>
+    <!--启用禁用-->
+    <select id="openClosePlatRequestById" parameterType="String" resultType="long">
+        CALL pro_platform_request(#{value},6)
+    </select>
+</mapper>

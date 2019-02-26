@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.CaseModelMapper">
+    <resultMap id="caseModelRes" type="CaseModel">
+        <result property="id" column="ID"/>
+        <result property="caseId" column="CaseID"/>
+        <result property="modelId" column="ModelID"/>
+        <result property="orderNum" column="OrderNum"/>
+        <result property="isEnable" column="IsEnable"/>
+        <result property="userId" column="AddUserID"/>
+        <result property="addTime" column="Addtime"/>
+    </resultMap>
+    <!--分页查询用例模块-->
+    <select id="selectCaseModelAll" parameterType="String" resultMap="caseModelRes">
+        CALL pro_case_model(#{value},1)
+    </select>
+    <!--分页查询用例模块个数-->
+    <select id="selectCaseModelCount" parameterType="String" resultType="long">
+        CALL pro_case_model(#{value},2)
+    </select>
+    <!--保存用例模块-->
+    <select id="saveCaseModelInfo" parameterType="String" resultType="long">
+        CALL pro_case_model(#{value},3)
+    </select>
+    <!--通过ID查询模块信息-->
+    <select id="selectCaseModelByExaInfo" parameterType="String" resultMap="caseModelRes">
+        CALL pro_case_model(#{value},4)
+    </select>
+    <!--查询刚插入的ID-->
+    <select id="selectCaseModelByDescId" parameterType="String" resultType="long">
+        CALL pro_case_model(#{value},5)
+    </select>
+</mapper>

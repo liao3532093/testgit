@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vsofo.automation.mapper.UserMapper">
+    <resultMap id="userRes" type="UserItem">
+        <result property="id" column="ID"/>
+        <result property="account" column="Account"/>
+        <result property="password" column="Password"/>
+        <result property="showName" column="ShowName"/>
+        <result property="isLock" column="IsLock"/>
+        <result property="lastLoginTime" column="LastLoginTime"/>
+        <result property="lastLoginIP" column="LastLoginIP"/>
+        <result property="sessionId" column="sessionId"/>
+        <result property="addTime" column="AddTime"/>
+    </resultMap>
+    <!--保存用户信息-->
+    <select id="saveUserInfo" parameterType="String" resultType="long">
+        CALL pro_user_info(#{value},1)
+    </select>
+    <!--分页查询用户信息-->
+    <select id="selectUserInfoAll" parameterType="String" resultMap="userRes">
+        CALL pro_user_info(#{value},2)
+    </select>
+    <!--分页查询用户信息个数-->
+    <select id="selectUserInfoCount" parameterType="String" resultType="long">
+        CALL pro_user_info(#{value},3)
+    </select>
+    <!--按ID查询用户信息-->
+    <select id="selectUserInfoById" parameterType="String" resultMap="userRes">
+        CALL pro_user_info(#{value},4)
+    </select>
+    <!--启用禁用-->
+    <select id="openCloseUserInfoById" parameterType="String" resultType="long">
+        CALL pro_user_info(#{value},5)
+    </select>
+    <!--用户登录-->
+    <select id="userLogin" parameterType="String" resultMap="userRes">
+        CALL pro_user_info(#{value},6)
+    </select>
+    <!--修改用户信息-->
+    <select id="updateUserInfo" parameterType="String" resultType="long">
+        CALL pro_user_info(#{value},7)
+    </select>
+    <!--修改sessionid-->
+    <select id="updateUserSessionId" parameterType="String" resultType="long">
+        CALL pro_user_info(#{value},8)
+    </select>
+    <!--获取已登录状态的session_id-->
+    <select id="selectUserSessionId" parameterType="String" resultType="String">
+        CALL pro_user_info(#{value},9)
+    </select>
+</mapper>

@@ -1,0 +1,9 @@
+.layui-table-cell {
+    height: auto;
+    text-overflow: inherit;
+    white-space: pre-line;
+}
+
+.layui-btn:hover {
+    text-decoration: none;
+}
