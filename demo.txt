@@ -1,0 +1,25 @@
+$ cd ~  #保证当前路径在”~”下
+
+$ ssh-keygen -t rsa -C "xxxxxx@yy.com"  #建议填写自己真实有效的邮箱地址
+
+Generating public/private rsa key pair.
+
+Enter file in which to save the key (/c/Users/xxxx_000/.ssh/id_rsa):   #不填直接回车
+
+Enter passphrase (empty for no passphrase):   #输入密码（可以为空）
+
+Enter same passphrase again:   #再次确认密码（可以为空）
+
+Your identification has been saved in /c/Users/xxxx_000/.ssh/id_rsa.   #生成的密钥
+
+Your public key has been saved in /c/Users/xxxx_000/.ssh/id_rsa.pub.  #生成的公钥
+
+The key fingerprint is:
+
+e3:51:33:xx:xx:xx:xx:xxx:61:28:83:e2:81 xxxxxx@yy.com
+
+*本机已完成ssh key设置，其存放路径为：c:/Users/xxxx_000/.ssh/下。
+
+注释：可生成ssh key自定义名称的密钥，默认id_rsa。
+
+$ ssh-keygen -t rsa -C "邮箱地址" -f ~/.ssh/githug_blog_keys #生成ssh key的名称为githug_blog_keys，慎用容易出现其它异常。
